@@ -19,8 +19,14 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('simple/',include('core.urls'))
+    path('simple/',include('core.urls'),name="test"),
+
+    #Auth Paths
+    path('accounts/',include('account.urls')),
+
 ]
+
+#Manejo de Imagenes en modo DEBUG
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
