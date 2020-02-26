@@ -13,8 +13,5 @@ class AccountForm(forms.ModelForm):
             'last_name':forms.TextInput(attrs={'class':'form-control'}),
             'phone_number':forms.TextInput(attrs={'class':'form-control'}),
             'address':forms.TextInput(attrs={'class':'form-control'}),
-            'birth_date':forms.DateTimeInput(attrs={
-                'class': 'form-control datetimepicker-input',
-                'data-target': '#datetimepicker1'
-                })
+            'birth_date':forms.DateTimeInput(attrs={'type':'date','class':'form-control'}),
         }

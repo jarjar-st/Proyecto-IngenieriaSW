@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class='top'>
+        <div class='midle'>
+            <div class= 'in'>
+            <center><FONT SIZE=23>
+            <i class="fas fa-bullseye" style="justify-content: center;color: #009AD0">
+            </i></FONT><br></FONT>
+            
+            
+            <h3>Te damos la bienvenida a APP</h3>
+            <h5 style="color:grey">Encuentra todo lo que necesitas <br>	
+            <strong style="color: black">Iniciar Sesion </strong></h5>
+            {% if 'register' in request.GET %}
+                <p style=color:green>Registrado Correctamente, ya puedes iniciar Sesion</p>
+            {% endif %}
+            </center>
+                    <form action="" method="post">
+                    {% csrf_token %} 
+                    <label for="id_username" >Correo electrónico:</label> 
+                    <input class='form-control' type="text" name="username" autofocus maxlength="254" required id="id_username" />
+                
+                    <label for="id_password" >Password:</label> 
+                    <input class='form-control' type="password" name="password" required id="id_password" /></p
+                    <center>
+                        <button type="submit" class='btn btn-primary form-control'>Confirmar</button>
+                    </center>
+                    </form>
+            </div>
+        
+{% endblock %}
