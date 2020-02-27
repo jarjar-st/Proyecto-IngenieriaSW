@@ -22,6 +22,10 @@
 </head>
 
 <body>
+{% if request.user.is_authenticated %}
+    <p style="color: green;">Usuario Autenticado</p>
+    <a href="{% url 'logout' %}">logout</a>
+ {% endif %}
 {% block content %}
 <h1>PAdre</h1>
 

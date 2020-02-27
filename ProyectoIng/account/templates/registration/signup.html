@@ -13,13 +13,47 @@
             <h5 style="color:grey">Encuentra todo lo que necesitas <br>	
             <strong style="color: black">Registrate </strong></h5>
             </center>
-                    <form action="" method="post">
+                    <form  method="post">
                     {% csrf_token %}
                     
-                    {{ form.as_p }}
+                    Email <br>
+                    <input class='form-control' type="email" name="email" maxlength="100" autofocus required id="id_email" /> <br>
+
+                
+                    Nombre <br>
+                    <input class='form-control' type="text" name="first_name" maxlength="50" required id="id_first_name" /> <br>
+
+                
+                    Apellido <br>
+                    <input class='form-control' type="text" name="last_name" maxlength="50" required id="id_last_name" /> <br>
+
+                
+                    Fecha de nacimiento <br>
+                    <input class='form-control' type="date" name="birth_date" required id="id_birth_date" /> <br>
+
+                
+                    Número de teléfono <br>
+                    <input class='form-control' type="text" name="phone_number" maxlength="20" required id="id_phone_number" /> <br>
+
+                
+                    Dirección <br>
+                    <textarea class= 'form-control' name="address" cols="40" rows="10" required id="id_address">
+                    </textarea> <br>
+
+                
+                    Password <br>
+                    <input class='form-control' type="password" name="password1" required id="id_password1" /> <br>
+
+                
+                    Password confirmation <br>
+                    <input class='form-control' type="password" name="password2" required id="id_password2" /> <br>
+
                     <center>
-                        <button type="submit" class='btn btn-primary'>Confirmar</button>
+                        <button type="submit" class='btn btn-primary form-control'>Confirmar</button> <br>
                     </center>
+                            <a href="{% url 'login' %}">Iniciar Sesion</a>
+                        
+                    
                     </form>
             </div>
         

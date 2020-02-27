@@ -85,16 +85,16 @@ class Account(AbstractBaseUser):
         auto_now=True
     )
     is_admin = models.BooleanField(
-        default=False
+        default=True
     )
     is_staff = models.BooleanField(
-        default=False
+        default=True
     )
     is_active = models.BooleanField(
-        default=False
+        default=True
     )
     is_superuser = models.BooleanField(
-        default=False
+        default=True
     )
     #Fin utilizados por django
 
