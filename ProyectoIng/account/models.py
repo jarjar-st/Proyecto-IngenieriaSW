@@ -15,8 +15,6 @@ class AccountManager(BaseUserManager):
             raise ValueError("Debes ingresar tu direccion para registrarte")
         if not birth_date:
             raise ValueError("Debes ingresar tu fecha de nacimiento para registrarte")
-        #if not otro_atributo:
-        #    raise ValueError("Debes ingresar tu otro_atributo para registrarte")
         user = self.model(
             email = self.normalize_email(email),
             first_name = first_name,
@@ -71,11 +69,6 @@ class Account(AbstractBaseUser):
     birth_date = models.DateField(
         verbose_name='Fecha de nacimiento'
     )
-    #otro_atributo = models.TipoField(
-    #    verbose_name='Nombre'
-    #)
-    #Agregar a required fields
-    #Utilizados por django
     date_joined = models.DateTimeField(
         verbose_name='Fecha de registro',
         auto_now_add=True
@@ -85,10 +78,10 @@ class Account(AbstractBaseUser):
         auto_now=True
     )
     is_admin = models.BooleanField(
-        default=True
+        default=False
     )
     is_staff = models.BooleanField(
-        default=True
+        default=False
     )
     is_active = models.BooleanField(
         default=True
@@ -96,7 +89,6 @@ class Account(AbstractBaseUser):
     is_superuser = models.BooleanField(
         default=True
     )
-    #Fin utilizados por django
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name','last_name','phone_number','address','birth_date']
@@ -110,4 +102,4 @@ class Account(AbstractBaseUser):
         return self.is_admin
     
     def has_module_perms(self, app_label):
-        return True
+        return True;
