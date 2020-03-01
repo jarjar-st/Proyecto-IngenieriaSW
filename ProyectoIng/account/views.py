@@ -28,7 +28,7 @@ class CreateUser(CreateView): #Pass,Correo,Nombre,Apellido,Telefono,Direccion,Fe
             user = form.save()
             user.save()
             current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Activa tu cuenta.'
             message_html = render_to_string('registration/activation_mail.html', {
                 'user': user.get_full_name(),
                 'domain': current_site.domain,
