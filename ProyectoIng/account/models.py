@@ -84,7 +84,7 @@ class Account(AbstractBaseUser):
         default=False
     )
     is_active = models.BooleanField(
-        default=True
+        default=False
     )
     is_superuser = models.BooleanField(
         default=True
@@ -102,4 +102,7 @@ class Account(AbstractBaseUser):
         return self.is_admin
     
     def has_module_perms(self, app_label):
-        return True;
+        return True
+
+    def get_full_name(self):
+        return self.first_name + ' ' + self.last_name

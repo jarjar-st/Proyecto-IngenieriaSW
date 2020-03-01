@@ -13,7 +13,13 @@
             <h5 style="color:grey">Encuentra todo lo que necesitas <br>	
             <strong style="color: black">Iniciar Sesion </strong></h5>
             {% if 'register' in request.GET %}
-                <p style=color:green>Registrado Correctamente, ya puedes iniciar Sesion</p>
+                <p style=color:green>Te has registrado correctamente, para poder iniciar sesión necesitarás activar tu cuenta, se ha enviado un enlace a tu correo.</p>
+            {% endif %}
+            {% if 'activated' in request.GET %}
+                <p style=color:green>Has activado tu cuenta, estás listo para ingresar y obtener el máximo de APP.</p>
+            {% endif %}
+            {% if 'invalid_activation' in request.GET %}
+                <p style=color:green>Al parecer el enlace de activación no es valido.</p>
             {% endif %}
             </center>
                     <form action="" method="post">
