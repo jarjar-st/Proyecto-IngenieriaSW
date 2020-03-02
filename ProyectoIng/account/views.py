@@ -43,11 +43,12 @@ class CreateUser(CreateView): #Pass,Correo,Nombre,Apellido,Telefono,Direccion,Fe
         return reverse_lazy('login')+'?register'
 
 class TemplateLogin(TemplateView):#Visualizar Login
-    template_name= 'account/login.html'
+    template_name = 'account/login.html'
 
 def logout_view(request):#Cerrar Sesion
     logout(request)
     return redirect('login')
+
 
 def activate(request, uidb64, token):
     try:
@@ -61,6 +62,7 @@ def activate(request, uidb64, token):
         return HttpResponseRedirect(reverse_lazy('login')+'?activated')
     else:
         return HttpResponseRedirect(reverse_lazy('login')+'?invalid_activation')
+
 
 
     
