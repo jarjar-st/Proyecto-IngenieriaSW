@@ -135,5 +135,5 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 
 #AUTH REDIRECT
-LOGIN_REDIRECT_URL = 'test'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL= 'login'

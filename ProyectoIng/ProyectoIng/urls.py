@@ -21,8 +21,6 @@ from core.views import base_barra
 urlpatterns = [
     path('', base_barra.as_view(), name="home"),
     path('admin/', admin.site.urls),
-    path('simple/',include('core.urls'),name="test"),
-
     #Auth Paths
     path('accounts/',include('account.urls')),
     path('accounts/',include('django.contrib.auth.urls')),

@@ -2,9 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 # Create your views here.
 
-class reg(TemplateView):
 
-    template_name = "core/simple.html"
 
 class sidebar(TemplateView):
 
