@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sidebar/',sidebar.as_view(),name='test'),
     path('nosidebar/',no_sidebar.as_view()),
-    path('basebarra/',base_barra.as_view()),
+    
 ]
