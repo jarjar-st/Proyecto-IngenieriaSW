@@ -3,32 +3,32 @@
 {% block content %}
     <div class="col-3 mx-auto mt-5 text-center">
         <img src="{% static 'core/img/Logo-Paya-Single2.png' %} " height="60" width="160" alt="">  
-        <h3>Te damos la bienvenida a APP</h3>
+        <h3>Te damos la bienvenida id_a APP</h3>
         <h5 style="color:grey">Encuentra todo lo que necesitas <br>	
         <strong style="color: black">Registrate </strong></h5>
         <form  method="post">
             {% csrf_token %}
             <div class="form-group my-0 py-2">
-                <input type="email" name="email" maxlength="100" autofocus required class="form-control" id="email" placeholder="Correo electrónico">
+                <input type="email" name="email" maxlength="100" autofocus required class="form-control" id="id_email" placeholder="Correo electrónico">
             </div>
             <div class="row">
                 <div class="col-6 pr-1 mr-0">
                     <div class="form-group my-0 py-2">
-                        <input type="text" name="first_name" maxlength="50" required class="form-control" id="first_name" placeholder="Nombre">
+                        <input type="text" name="first_name" maxlength="50" required class="form-control" id="id_first_name" placeholder="Nombre">
                     </div>
                 </div>
                 <div class="col-6 pl-1 ml-0">
                     <div class="form-group my-0 py-2">
-                        <input type="text" name="last_name" maxlength="50" required class="form-control" id="last_name" placeholder="Apellido">
+                        <input type="text" name="last_name" maxlength="50" required class="form-control" id="id_last_name" placeholder="Apellido"id_>
                     </div>
                 </div>
             </div>
             <div class="form-group my-0 py-2 text-left">
-                <label for="first_name">Fecha de nacimiento</label>
-                <input type="date" name="birth_date" required class="form-control" id="birth_date">
+                <label for="birth_date" >Fecha de nacimiento</label>
+                <input type="date" name="birth_date" required class="form-control" id="id_birth_date">
             </div>
             <div class="form-group my-0 py-2">
-                <input type="text" name="phone_number" required class="form-control" id="phone_number" placeholder="Número de teléfono">
+                <input type="text" name="phone_number" required class="form-control" id="id_phone_number" placeholder="Número de teléfono">
             </div>
             <div class="form-group my-0 py-2">
                 <textarea class= 'form-control' name="address" rows="1" required id="id_address" placeholder="Dirección"></textarea>
@@ -36,12 +36,12 @@
             <div class="row">
                 <div class="col-6 pr-1 mr-0">
                     <div class="form-group my-0 py-2">
-                        <input type="password" name="password1" required class="form-control" id="password1" placeholder="Contraseña">
+                        <input type="password" name="password1" required class="form-control" id="id_password1" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="col-6 pl-1 ml-0">
                     <div class="form-group my-0 py-2">
-                        <input type="text" name="password2" required class="form-control" id="password2" placeholder="Confirmar contraseña">
+                        <input type="text" name="password2" required class="form-control" id="id_password2" placeholder="Confirmar contraseña">
                     </div>
                 </div>
             </div>
