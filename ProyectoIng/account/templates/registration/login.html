@@ -1,6 +1,18 @@
 {% extends 'core/base.html' %}
 {% load static %}
+{% block navbar %}
+    {% if request.user.is_authenticated %}
+        {% include 'core/navbar.html' %}
+    {% endif %}
+{% endblock %}
 {% block content %}
+{% if request.user.is_authenticated %}
+  <div class="col-3 mx-auto mt-5 text-center">
+    <img src="{% static 'core/img/Logo-Paya-Single2.png' %} " height="60" width="160" alt="">  
+    <h2>Debe finalizar Sesión actual para iniciar una nueva.</h2>
+    <a href="{% url 'logout'%}">Cerrar Sesión</a>
+  </div>
+{% else %}
     <div class="col-3 mx-auto mt-5 text-center">
         <!--i class="fas fa-bullseye fa-3x" style="justify-content: center;color: #009AD0"></i-->
         <img src="{% static 'core/img/Logo-Paya-Single2.png' %} " height="60" width="160" alt="">  
@@ -32,5 +44,5 @@
             <a href="{% url 'signup' %}">Registrate</a>
         </form>
     </div>
-        
+{% endif %}
 {% endblock %}

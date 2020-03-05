@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="input-group">
+                    <a class="navbar-brand py-1" href="#">APP</a>
+                    <form class="form-inline">
+                        <div class="form-group pl-5 pr-1 py-1">
+                            <input type="text" class="form-control" id="search" placeholder="Estoy buscando...">
+                        </div>
+                        <div class="input-group">
+                            <select class="form-control">
+                                <option>Todo</option>
+                                <option>Categoría 1</option>
+                                <option>Categoría 2</option>
+                            </select>            
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+                            </span>
+                        </div>
+                    </form>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% if request.user.is_authenticated %}
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}" style="text-transform: capitalize;">{{request.user.first_name}}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'signup' %}">Regístrate</a>
+                </li>
+            </ul>
+        {% endif %}
+    </div>
+</nav>
