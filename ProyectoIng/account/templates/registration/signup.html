@@ -22,7 +22,7 @@
             {% csrf_token %}
             <div class="form-group my-0 py-2">
                 <input type="email" name="email" aria-describedby="emailHelp" maxlength="100" autofocus required class="form-control" id="id_email" placeholder="Correo electrónico">
-                <small id="emailHelp" class="form-text text-muted">ejmplo@mail.com</small>
+                <small id="emailHelp" class="form-text text-muted text-left">ejmplo@mail.com</small>
             </div>
             <div class="row">
                 <div class="col-6 pr-1 mr-0">
@@ -42,24 +42,25 @@
             </div>
             <div class="form-group my-0 py-2">
                 <input type="text" name="phone_number" maxlength="8" minlength="8" required class="form-control" id="id_phone_number" placeholder="Número de teléfono">
-                 <small id="phone_numberHelp" class="form-text text-muted">99999999</small>
+                 <small id="phone_numberHelp" class="form-text text-muted text-left">99999999</small>
             </div>
             <div class="form-group my-0 py-2">
                 <textarea class= 'form-control' name="address" rows="1" required id="id_address" placeholder="Dirección"></textarea>
             </div>
             <div class="row">
-                <div class="col-6 pr-1 mr-0 text-left">
-                    <div class="form-group my-0 py-2">
+                <div class="col-6 pr-1 mr-0">
+                    <div class="form-group my-0 pt-2">
                         <input type="password" name="password1" required class="form-control" id="id_password1" aria-describedby="passwordHelp" placeholder="Contraseña">
-                        <small id="passwordHelp" class="form-text text-muted">Mínimo 8 carcateres</small>
+                        
                     </div>
                 </div>
                 <div class="col-6 pl-1 ml-0">
-                    <div class="form-group my-0 py-2">
+                    <div class="form-group my-0 pt-2">
                         <input type="password" name="password2" required class="form-control" id="id_password2" placeholder="Confirmar contraseña">
                     </div>
                 </div>
             </div>
+            <small id="passwordHelp" class="form-text text-muted mt-0 pt-0 text-left">Mínimo 8 carcateres</small>
             <button type="submit" class="btn btn-primary btn-block my-3">Registrarte</button>
             <a href="{% url 'login' %}">Iniciar Sesion</a>
         </form>
