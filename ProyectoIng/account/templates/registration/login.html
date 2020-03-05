@@ -36,7 +36,7 @@
             <div class="form-group my-0 py-2">
                 <input type="password" name="password" maxlength="100" autofocus required class="form-control" id="id_password" placeholder="Contraseña">
                 {% if form.errors %}
-                    <p  style="color:red;font-size: 12px">Verifique que su correo y contraseña sean las correctas.</p>
+                    <small id="errors" class="form-text text-danger">Verifique que su correo y contraseña sean las correctas.</small>
                 {% endif %}
                 <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
             </div>
