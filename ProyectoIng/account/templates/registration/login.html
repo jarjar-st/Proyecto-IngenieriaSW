@@ -1,48 +1,50 @@
 {% extends 'core/base.html' %}
 {% load static %}
+{% block title %}
+    Ingreso
+{% endblock %}
 {% block navbar %}
-    {% if request.user.is_authenticated %}
-        {% include 'core/navbar.html' %}
-    {% endif %}
 {% endblock %}
 {% block content %}
-{% if request.user.is_authenticated %}
-  <div class="col-3 mx-auto mt-5 text-center">
-    <img src="{% static 'core/img/Logo-Paya-Single2.png' %} " height="60" width="160" alt="">  
-    <h2>Debe finalizar Sesión actual para iniciar una nueva.</h2>
-    <a href="{% url 'logout'%}">Cerrar Sesión</a>
-  </div>
-{% else %}
-    <div class="col-3 mx-auto mt-5 text-center">
-        <!--i class="fas fa-bullseye fa-3x" style="justify-content: center;color: #009AD0"></i-->
-        <img src="{% static 'core/img/Logo-Paya-Single2.png' %} " height="60" width="160" alt="">  
-        <h3>Bienvenido</h3>
-        <h5 class="text-secondary">Para comprar y vender Ya</h5>
-        <h5><strong>Ingresa</strong></h5>
-        {% if 'register' in request.GET %}
-            <small id="msg" class="form-text text-success">Te has registrado correctamente, para poder iniciar sesión necesitarás activar tu cuenta, se ha enviado un enlace a tu correo.</small>
-        {% endif %}
-        {% if 'activated' in request.GET %}
-            <small id="msg" class="form-text text-success">Has activado tu cuenta, estás listo para ingresar y obtener el máximo de APP.</small>
-        {% endif %}
-        {% if 'invalid_activation' in request.GET %}
-            <small id="msg" class="form-text text-danger">Al parecer el enlace de activación no es válido.</small>
-        {% endif %}
-        <form action="" method="post">
-            {% csrf_token %} 
-            <div class="form-group my-0 py-2">
-                <input style="text-transform: lowercase;" type="email" name="username" maxlength="100" autofocus required class="form-control" id="id_username" placeholder="Correo electrónico">
-            </div>
-            <div class="form-group my-0 py-2">
-                <input type="password" minlength="8" name="password" maxlength="100" autofocus required class="form-control" id="id_password" placeholder="Contraseña">
-                {% if form.errors %}
-                    <small id="errors" class="form-text text-danger">Verifique que su correo y contraseña sean las correctas.</small>
-                {% endif %}
-                <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
-            </div>
-                <button type="submit" class="btn btn-primary btn-block mb-3">Ingresar</button>
-            <a href="{% url 'signup' %}">Registrate</a>
-        </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 mx-auto mt-5 text-center">
+            <a href="{% url 'home' %}" class="text-decoration-none"><h1 class="font-weight-bold font-italic display-3"><span class="text-primary">Pa</span><span class="text-success">’Ya</span></h1></a>
+            {% if request.user.is_authenticated %}
+                <h3>Debes cerrar la sesión actual para ingresar con otra cuenta.</h3>
+                <h4>¿Quieres cerrar sesión?</h4>
+                <p>Si, deseo <a href="{% url 'logout'%}">Cerrar sesión</a> e ingresar con otra cuenta.</p>
+                <p>No, deseo <a href="{% url 'home'%}">Volver a inicio</a>, llegué aquí accidentalmente.</p>
+            {% else %}
+            <h3>Bienvenido</h3>
+            <h5><strong>Ingresa</strong></h5>
+            <h5 class="text-secondary">¡Para comprar y vender ya!</h5>
+            {% if 'register' in request.GET %}
+                <small id="msg" class="form-text text-success">Te has registrado correctamente, para poder iniciar sesión necesitarás activar tu cuenta, se ha enviado un enlace a tu correo.</small>
+            {% endif %}
+            {% if 'activated' in request.GET %}
+                <small id="msg" class="form-text text-success">Has activado tu cuenta, estás listo para ingresar y obtener el máximo de APP.</small>
+            {% endif %}
+            {% if 'invalid_activation' in request.GET %}
+                <small id="msg" class="form-text text-danger">Al parecer el enlace de activación no es válido.</small>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %} 
+                <div class="form-group my-0 py-2">
+                    <input type="email" name="username" maxlength="100" autofocus required class="form-control" id="id_username" placeholder="Correo electrónico">
+                </div>
+                <div class="form-group my-0 py-2">
+                    <input type="password" minlength="8" name="password" maxlength="100" autofocus required class="form-control" id="id_password" placeholder="Contraseña">
+                    {% if form.errors %}
+                        <small id="errors" class="form-text text-danger">Verifique que su correo y contraseña sean las correctas.</small>
+                    {% endif %}
+                    <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
+                </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-3">Ingresar</button>
+                <a href="{% url 'signup' %}">Registrate</a>
+            </form>
+            {% endif %}
+        </div>
     </div>
-{% endif %}
+</div>
 {% endblock %}

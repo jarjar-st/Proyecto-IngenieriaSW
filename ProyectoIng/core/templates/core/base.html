@@ -9,15 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pa'Ya|Tu Mercado Digital.</title>
+    <title>{% block title %}{% endblock %} | Pa’Ya</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'core/vendor/fontawesome/css/all.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
-    <link href="{% static 'core/css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/sticky-footer.css' %}" rel="stylesheet">
 
 </head>
 
@@ -25,60 +24,18 @@
     {% block navbar %}
         
     {% endblock %}
-    <div class="container-fluid">
-        <div class="row">
-            {% block content %}{% endblock %}
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col mx-auto text-center">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-whatsapp fa-2x"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-facebook fa-2x"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-instagram fa-2x"></i>
-                        </a>
-                    </li>
-                </ul>
-                <p class="copyright text-muted" align="center">Derechos reservados &copy; 2020 Pa'Ya</p>
-            </div>
-        </div>
-    </div>
-
+    {% block content %}{% endblock %}
+    <footer class="footer bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</span>
+      </div>
+    </footer>
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'core/vendor/fontawesome/js/all.min.js' %}"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-    <!-- Category Script -->
-    <script>
-        $(document).ready(function (e) {
-            $('.search-panel .dropdown-menu').find('a').click(function (e) {
-                e.preventDefault();
-                var param = $(this).attr("href").replace("#", "");
-                var concept = $(this).text();
-                $('.search-panel span#search_concept').text(concept);
-                $('.input-group #search_param').val(param);
-            });
-        });
-    </script>
-
+    <script src="{% static 'core/js/max-date-today.js' %}"></script>
+    <script src="{% static 'core/js/resize-select.js' %}"></script>
 </body>
 
 </html>

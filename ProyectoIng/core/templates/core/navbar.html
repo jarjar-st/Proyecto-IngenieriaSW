@@ -1,45 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="input-group">
-                    <a class="navbar-brand py-1" href="#">APP</a>
-                    <form class="form-inline">
-                        <div class="form-group pl-5 pr-1 py-1">
-                            <input type="text" class="form-control" id="search" placeholder="Estoy buscando...">
-                        </div>
-                        <div class="input-group">
-                            <select class="form-control">
-                                <option>Todo</option>
-                                <option>Categoría 1</option>
-                                <option>Categoría 2</option>
-                            </select>            
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
-                            </span>
-                        </div>
-                    </form>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light  justify-content-start">
+    <a href="{% url 'home' %}" class="navbar-brand">
+        <h1>
+            <em><span class="text-primary"><strong>Pa</strong></span><span class="text-success"><strong>’Ya</strong></span></em>
+        </h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar6">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar6">
+        <form class="mx-2 d-inline w-50 mr-auto">
+            <div class="input-group">
+                <div class="input-group-prepend border-right border-primary">
+                    <select class="btn btn-outline-primary resize-select">
+                        <option>Two</option>
+                        <option>Three</option>
+                    </select>
+                </div>
+                <input type="text" class="form-control border-primary border-right-0 border-left-0" placeholder="Estoy buscando..." >
+                <div class="input-group-append border-left border-success">
+                    <button class="btn btn-outline-success">Buscar</button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </form>
         {% if request.user.is_authenticated %}
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}" style="text-transform: capitalize;">{{request.user.first_name}}</a>
+                    <a class="nav-link" href="{% url 'login' %}">{{request.user.first_name}}</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
                 </li>
             </ul>
         {% else %}
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
                 </li>

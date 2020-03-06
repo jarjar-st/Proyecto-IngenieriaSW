@@ -8,15 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>APP</title>
+    <title>{% block title %}{% endblock %} | Pa’Ya</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'core/vendor/fontawesome/css/all.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
-    <link href="{% static 'core/css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/sticky-footer.css' %}" rel="stylesheet">
 
 </head>
 
@@ -24,10 +23,18 @@
     {% block navbar %}
         {% include 'core/navbar.html' %}
     {% endblock %}
+    {% block content %}{% endblock %}
+    <footer class="footer bg-light">
+      <div class="container text-center">
+        <span class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</span>
+      </div>
+    </footer>
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'core/vendor/fontawesome/js/all.min.js' %}"></script>
+    <script src="{% static 'core/js/max-date-today.js' %}"></script>
+    <script src="{% static 'core/js/resize-select.js' %}"></script>
 </body>
 
 </html>
