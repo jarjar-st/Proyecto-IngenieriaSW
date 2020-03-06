@@ -17,7 +17,7 @@
                 <p>No, deseo <a href="{% url 'home'%}">Volver a inicio</a>, llegué aquí accidentalmente.</p>
             {% else %}
             <h3>Bienvenido</h3>
-            <h5><strong>Ingresa</strong></h5>
+            <h4 class="font-weight-bold">Ingresa</h4>
             <h5 class="text-secondary">¡Para comprar y vender ya!</h5>
             {% if 'register' in request.GET %}
                 <small id="msg" class="form-text text-success">Te has registrado correctamente, para poder iniciar sesión necesitarás activar tu cuenta, se ha enviado un enlace a tu correo.</small>
