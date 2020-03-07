@@ -15,7 +15,7 @@
     <link href="{% static 'core/vendor/fontawesome/css/all.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'core/css/sticky-footer.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/footer.css' %}" rel="stylesheet">
 
 </head>
 
@@ -24,9 +24,14 @@
         {% include 'core/navbar.html' %}
     {% endblock %}
     {% block content %}{% endblock %}
-    <footer class="footer bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</span>
+    <footer class="bg-light">
+      <div class="container">
+        <div class="row py-2">{% block footer %}{% endblock %}</div>
+        <div class="row">
+          <div class="col text-center">
+            <p class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</p>
+          </div>
+        </div>
       </div>
     </footer>
     <!-- Bootstrap core JavaScript -->
