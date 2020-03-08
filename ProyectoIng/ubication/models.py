@@ -1,0 +1,15 @@
+from django.db import models
+
+# Create your models here.
+class departamento(models.Model):
+    nombre=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+class municipio(models.Model):
+    ubication=models.ForeignKey(departamento, on_delete= models.CASCADE)
+    nombre_relativo= models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre_relativo
