@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import * #CreateUser,TemplateLogin,logout_view, activate
+from account import views
 
 urlpatterns = [
     path('signup',CreateUser.as_view(), name='signup'),#Template Registro
@@ -7,4 +8,6 @@ urlpatterns = [
     path('logout',logout_view, name='logout'),#Logout
     path('activate/<uidb64>/<token>',activate, name='activate'),#Activate account
     #path('url_bajo_account',vista en views, name='nombre'),
+    path('privacy', views.politicas, name='privacy'),
+    path('terms', views.terminos, name='terms'),
 ]
