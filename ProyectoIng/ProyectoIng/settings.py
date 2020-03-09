@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'ubication',
     'products',
     'services',
+    'categories',
     
 ]
 
