@@ -49,6 +49,11 @@ def logout_view(request):#Cerrar Sesion
     logout(request)
     return redirect('login')
 
+def politicas(request):
+    return render(request, 'registration/privacy.html' )
+
+def terminos(request):
+    return render(request, 'registration/terms.html' )
 
 def activate(request, uidb64, token):
     try:

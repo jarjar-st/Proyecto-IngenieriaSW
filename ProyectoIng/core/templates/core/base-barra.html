@@ -87,14 +87,12 @@
 
 {% endblock %}
       <footer class="bg-light">
-      <div class="container">
-        <div class="row py-2">{% block footer %}{% endblock %}</div>
-        <div class="row">
-          <div class="col text-center">
-            <p class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</p>
-          </div>
+        {% block footer %}{% endblock %}
+          <div class="row">
+            <div class="col text-center">
+              <p class="text-muted">Derechos reservados &copy; 2020 Pa’Ya</p>
+            </div>
         </div>
-      </div>
     </footer>
   
 
