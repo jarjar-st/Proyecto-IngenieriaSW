@@ -62,16 +62,19 @@
                     </div>
                 </div>
                 <small id="passwordHelp" class="form-text text-muted mt-0 pt-0 text-left">Mínimo 8 carcateres</small>
-                <button type="submit" class="btn btn-primary btn-block my-3">Registrarte</button>
-                <a href="{% url 'login' %}">Iniciar Sesion</a>
+                <button type="submit" class="btn btn-primary btn-block my-3 ">Registrarte</button>
+                <a href="{% url 'login' %}" class=" my-4 pt-0">Iniciar Sesion</a>
             </form> 
             {% endif %}
         </div>
     </div>
-</div>     
+</div>
+ 
 {% endblock %}
 {% block footer %}
-    <div class="col text-center">
-        Contenido sobre texto de copyright
-    </div>
-{% endblock %}
+<div class="col text-center my-0 inline">
+    <p class="col text-center my-0"><a href="{% url 'terms' %}" class="col text-center my-0">Terminos y Servicios</a>
+        <a href="{% url 'privacy' %}" class="col text-center my-0 pt-0">Politicas y Privacidad</a></p>
+ 
+</div>
+{% endblock %}    

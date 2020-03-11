@@ -13,8 +13,8 @@
             {% if request.user.is_authenticated %}
                 <h3>Debes cerrar la sesión actual para ingresar con otra cuenta.</h3>
                 <h4>¿Quieres cerrar sesión?</h4>
-                <p>Si, deseo <a href="{% url 'logout'%}">Cerrar sesión</a> e ingresar con otra cuenta.</p>
-                <p>No, deseo <a href="{% url 'home'%}">Volver a inicio</a>, llegué aquí accidentalmente.</p>
+                <p>Si, deseo<a href="{% url 'logout'%}">Cerrar sesión</a>e ingresar con otra cuenta.</p>
+                <p>No, deseo<a href="{% url 'home'%}">Volver a inicio</a>,llegué aquí accidentalmente.</p>
             {% else %}
             <h3>Bienvenido</h3>
             <h4 class="font-weight-bold">Ingresa</h4>
