@@ -16,4 +16,8 @@ class base_barra(TemplateView):
 
     template_name = "core/base-barra.html"
 
+class main_page(TemplateView):
+
+    template_name= "core/blank.html"
+
 

@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
-from core.views import base_barra
+from core.views import base_barra,main_page
 
 urlpatterns = [
-    path('', base_barra.as_view(), name="home"),
+    path('test', base_barra.as_view(), name="test"),
+    path('', main_page.as_view(), name="home"),
     path('admin/', admin.site.urls),
     #Auth Paths
     path('accounts/',include('account.urls')),
