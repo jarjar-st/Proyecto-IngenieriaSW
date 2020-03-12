@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Categories,Ad_Kind,Ubication,Ad, Uniti
+from .models import Category,AdKind,Location,Ad, Unit
 
 # Register your models here.
-admin.site.register(Categories)
-admin.site.register(Ad_Kind)
-admin.site.register(Ubication)
+admin.site.register(Category)
+admin.site.register(AdKind)
+admin.site.register(Location)
 admin.site.register(Ad)
-admin.site.register(Uniti)
+admin.site.register(Unit)

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import UserImage, AdImg, ImagesXUser, ImageXAd
+from .models import Image, ImageXUser, ImageXAd, ImageXStore
 
 # Register your models here.
-admin.site.register(UserImage)
-admin.site.register(AdImg)
-admin.site.register(ImagesXUser)
+admin.site.register(Image)
+admin.site.register(ImageXStore)
+admin.site.register(ImageXUser)
 admin.site.register(ImageXAd)
