@@ -6,6 +6,7 @@ from store.models import Store
 class Category(models.Model):
     category_name=models.CharField(max_length=100,blank=False,null=False)
     category_description= models.TextField(null=False, blank=False)
+    category_icon_class= models.CharField(max_length=100,null=False, blank=False)
 
     def __str__(self):
         return self.category_name
@@ -55,6 +56,7 @@ class Ad(models.Model):
     ad_name= models.CharField(max_length=100)
     ad_description= models.TextField()
     price= models.FloatField()
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.ad_name
@@ -62,3 +64,38 @@ class Ad(models.Model):
     class Meta():
         verbose_name= "Anuncio"
         verbose_name_plural= "Anuncios"
+
+class Currency(models.Model):
+    currency_name= models.CharField(max_length=100,blank=False,null=False)
+    currency_sign = models.CharField(max_length=5,blank=False,null=False)
+
+    def __str__(self):
+        return self.currency_name
+
+    class Meta():
+        verbose_name= "Moneda"
+        verbose_name_plural= "Monedas"
+
+class PriceRange(models.Model):
+    min_price = models.FloatField(blank=False,null=False)
+    max_price = models.FloatField(blank=False,null=False)
+    currency = models.ForeignKey(Currency, on_delete= models.CASCADE)
+
+    def __str__(self):
+        return self.currency.currency_sign+self.min_price+'-'+self.max_price
+
+    class Meta():
+        verbose_name= "Rango de Precio"
+        verbose_name_plural= "Rangos de Precio"
+
+class CurrencyConversion(models.Model):
+    currency_one = models.ForeignKey(Currency,related_name="currency_one", on_delete= models.CASCADE)
+    currency_two = models.ForeignKey(Currency,related_name="currency_two", on_delete= models.CASCADE)
+    one_equals = models.FloatField(blank=False,null=False)
+
+    def __str__(self):
+        return self.currency_one.currency_sign+'1='+self.currency_two.currency_sign+str(self.one_equals)
+
+    class Meta():
+        verbose_name= "Conversión de Moneda"
+        verbose_name_plural= "Conversiones de Moneda"

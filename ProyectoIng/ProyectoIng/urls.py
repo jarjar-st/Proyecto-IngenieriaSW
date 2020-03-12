@@ -21,6 +21,7 @@ from core.views import base_barra,main_page
 urlpatterns = [
     path('test', base_barra.as_view(), name="test"),
     path('', main_page.as_view(), name="home"),
+    path('base_barra', base_barra.as_view(), name="base_barra"),
     path('admin/', admin.site.urls),
     #Auth Paths
     path('accounts/',include('account.urls')),

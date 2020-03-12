@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category,AdKind,Location,Ad, Unit
+from .models import Category,AdKind,Location,Ad, Unit, Currency, PriceRange, CurrencyConversion
 
 # Register your models here.
 admin.site.register(Category)
@@ -7,3 +7,6 @@ admin.site.register(AdKind)
 admin.site.register(Location)
 admin.site.register(Ad)
 admin.site.register(Unit)
+admin.site.register(Currency)
+admin.site.register(PriceRange)
+admin.site.register(CurrencyConversion)
