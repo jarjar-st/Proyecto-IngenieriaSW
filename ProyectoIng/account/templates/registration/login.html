@@ -3,10 +3,10 @@
 {% block title %}Iniciar Sesion{% endblock %} 
 {% block navbar %}
 {% endblock %}
-{% block body %}
+{% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3 mx-auto mt-5 text-center">
+        <div class="col-md-3 mx-auto mt-5 text-center">
             <a href="{% url 'home' %}" class="text-decoration-none"><h1 class="font-weight-bold font-italic display-3"><span class="text-primary">Pa</span><span class="text-success">’Ya</span></h1></a>
             {% if request.user.is_authenticated %}
                 <h3>Debes cerrar la sesión actual para ingresar con otra cuenta.</h3>
@@ -36,13 +36,14 @@
                     {% if form.errors %}
                         <small id="errors" class="form-text text-danger">Verifique que su correo y contraseña sean las correctas.</small>
                     {% endif %}
-                    <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
+                    <a href="{% url 'password_reset' %}" class="btn btn-link">¿Olvidaste tu contraseña?</a>
                 </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">Ingresar</button>
-                <a href="{% url 'signup' %}">Registrate</a>
+                <a href="{% url 'signup' %}" class="btn btn-link">Registrate</a>
             </form>
             {% endif %}
         </div>
     </div>
 </div>
 {% endblock %}
+

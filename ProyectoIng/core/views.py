@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from ad.models import Category
+from location.models import Location
 # Create your views here.
 
 
@@ -21,9 +22,10 @@ class base_barra(TemplateView):
         return context
 
 class main_page(TemplateView):
-    template_name= "core/blank.html"
+    template_name= "core/sidebar.html"
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['categories'] = Category.objects.order_by('category_name')
+        context['locations'] = Location.objects.filter(correlative_direction__isnull=True)
         return context
 
