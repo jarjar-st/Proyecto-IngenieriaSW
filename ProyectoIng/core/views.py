@@ -27,4 +27,3 @@ class main_page(TemplateView):
         context['categories'] = Category.objects.order_by('category_name')
         return context
 
-

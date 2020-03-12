@@ -1,11 +1,9 @@
-{% extends 'core/base-barra.html' %}
+{% extends 'core/blank.html' %}
 {% load static %}
-{% block title %}
-    Ingreso
-{% endblock %}
+{% block title %}Iniciar Sesion{% endblock %} 
 {% block navbar %}
 {% endblock %}
-{% block content %}
+{% block body %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-3 mx-auto mt-5 text-center">
@@ -40,7 +38,7 @@
                     {% endif %}
                     <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
                 </div>
-                    <button type="submit" class="btn btn-primary btn-block mb-3">Ingresar</button>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Ingresar</button>
                 <a href="{% url 'signup' %}">Registrate</a>
             </form>
             {% endif %}

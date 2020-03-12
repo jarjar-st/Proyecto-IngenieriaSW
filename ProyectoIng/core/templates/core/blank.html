@@ -23,12 +23,13 @@
 </head>
 
 <body id="page-top">
-
+{% block body %}
   <!-- Page Wrapper -->
   <div id="wrapper">
-
     <!-- Sidebar -->
+
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+   
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
@@ -326,7 +327,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{request.user}}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{request.user.first_name}}&nbsp;{{request.user.last_name}}</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -380,25 +381,7 @@
                   </div>
                 </div>
               {% endfor %}
-                   <!--Inicio Descripcion Producto-->
-                <div class="col-md-3">
-                  <div class="card p-0" style="width: 16rem; margin-bottom: 10px;">
-                        <img src="{% static 'core/img/test1.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body" style="padding: 10px;">
-                            <h6 style="padding:0px;margin: 0px;">Nombre</h6>
-                            <p style="font-size: 12px; margin: 0px;"> 
-                                <strong>7000.00 LPS</strong> 
-                                <i style="color: gold; " class="fa fa-star" aria-hidden="true"></i>
-                                <i style="color: gold; " class="fa fa-star" aria-hidden="true"></i>
-                                <i style="color: gold; " class="fa fa-star" aria-hidden="true"></i>
-                                <i style="color: gold; " class="fa fa-star" aria-hidden="true"></i>
-                                <i style="color: gold; " class="fa fa-star" aria-hidden="true"></i>
-                                <a href="">Contactar</a>
-                            </p> 
-                        </div>
-                  </div>
-              </div> 
-              <!--Fin-->
+                
             </div>
           {% endblock %}
         </div>
@@ -459,6 +442,7 @@
   <script src="{% static 'core/js/sb-admin-2.js' %}"></script>
   {% block js %}
   {% endblock %}
+{% endblock %}
 </body>
 
 </html>
