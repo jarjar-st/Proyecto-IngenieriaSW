@@ -72,7 +72,7 @@ class PriceRange(models.Model):
     currency = models.ForeignKey(Currency, on_delete= models.CASCADE)
 
     def __str__(self):
-        return self.currency.currency_sign+self.min_price+'-'+self.max_price
+        return self.currency.currency_sign+str(self.min_price)+'-'+str(self.max_price)
 
     class Meta():
         verbose_name= "Rango de Precio"

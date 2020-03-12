@@ -16,19 +16,16 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
-from core.views import base_barra,main_page
+from core.views import main_page
 
 urlpatterns = [
-    path('test', base_barra.as_view(), name="test"),
     path('', main_page.as_view(), name="home"),
-    path('base_barra', base_barra.as_view(), name="base_barra"),
+    path('stores/', include('store.urls')),
     path('admin/', admin.site.urls),
     #Auth Paths
     path('accounts/',include('account.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
-
 ]
-
 #Manejo de Imagenes en modo DEBUG
 if settings.DEBUG:
     from django.conf.urls.static import static

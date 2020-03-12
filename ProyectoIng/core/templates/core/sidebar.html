@@ -64,10 +64,10 @@
         <div id="collapsePrices" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Rango de precio</h6>
-            <a class="collapse-item" href="">Lps. 0-500</a>
-            <a class="collapse-item" href="">Lps. 500-1000</a>
-            <a class="collapse-item" href="">Lps. 1000-2500</a>
-            <a class="collapse-item" href="">Lps. 2500-5000</a>
+            {% for price_range in price_ranges %}
+              <a class="collapse-item" onclick="searchRange({{price_range.min_price}},{{price_range.max_price}},{{price_range.currency.id}});">{{price_range}}</a>
+            {% endfor %}
+              <a class="collapse-item" hidden></a>
             <div class="collapse-item">
               <div class="form-row mx-0">
                 <div class="form-group col-md-5">
@@ -93,7 +93,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Departamento</h6>
             {% for location in locations %}
-              <a class="collapse-item" href="">{{location.direction}}</a>
+              <a class="collapse-item" onclick="searchLocation('{{location.direction}}');">{{location.direction}}</a>
             {% endfor %}
           </div>
         </div>
@@ -119,8 +119,8 @@
           <i class="fas fa-cube"></i>
           <span>Mis Productos</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
+      <li class="nav-item {% if request.path == '/stores/my_stores' %}active{% endif %}">
+        <a class="nav-link" href="{% url 'my_stores' %}">
           <i class="fas fa-store-alt"></i>
           <span>Mis Tiendas</span></a>
       </li>
@@ -394,7 +394,6 @@
                   </div>
                 </div>
               {% endfor %}
-                
             </div>
           {% endblock %}
         </div>
