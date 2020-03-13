@@ -2,6 +2,8 @@ from django.db import models
 from location.models import Location
 from account.models import Account
 # Create your models here.
+"""Clase Tienda, 
+Atributos: [Nombre, descripcion, ubicacion de tienda]"""
 class Store(models.Model):
     store_name= models.CharField(max_length=100,null=False,blank=False)
     store_description= models.TextField(null=False,blank=False)

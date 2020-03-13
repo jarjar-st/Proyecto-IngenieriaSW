@@ -4,6 +4,8 @@ from store.models import Store
 from location.models import Location
 
 # Create your models here.
+"""Clase Categoria
+Atributos: [Nombre, descripcion e icono de la categoria]"""
 class Category(models.Model):
     category_name=models.CharField(max_length=100,blank=False,null=False)
     category_description= models.TextField(null=False, blank=False)
@@ -16,6 +18,8 @@ class Category(models.Model):
         verbose_name= "Categoría"
         verbose_name_plural= "Categorías"
 
+"""Clase Tipo Anuncio
+Atributo: TIpoAnuncio"""
 class AdKind(models.Model):
     ad_kind= models.CharField(max_length=20)
 
@@ -26,6 +30,8 @@ class AdKind(models.Model):
         verbose_name= "Tipo de Anuncio"
         verbose_name_plural= "Tipos de Anuncio"
 
+"""Clase Unidad,
+Atributo: Unidad"""
 class Unit(models.Model):
     unit_type= models.CharField(max_length=10, default="Unidad")
 
@@ -36,6 +42,9 @@ class Unit(models.Model):
         verbose_name= "Unidad"
         verbose_name_plural= "Unidades"
 
+"""Clase Anuncio:
+Atributos: [ID Usuario, ID Tienda, ID ubicacion, ID tipo anuncio, ID Categoria, ID Unidad, 
+            nombre y descripcion del anuncio, precio del anuncio y fecha de creacion]"""
 class Ad(models.Model):
     id_user = models.ForeignKey(Account, on_delete=models.CASCADE)
     id_store = models.ForeignKey(Store, on_delete= models.CASCADE,default=None, blank=True, null=True)
@@ -55,6 +64,8 @@ class Ad(models.Model):
         verbose_name= "Anuncio"
         verbose_name_plural= "Anuncios"
 
+"""Clase Moneda
+Atributos: [Nombre de la moneda, cambio]"""
 class Currency(models.Model):
     currency_name= models.CharField(max_length=100,blank=False,null=False)
     currency_sign = models.CharField(max_length=5,blank=False,null=False)
@@ -66,6 +77,8 @@ class Currency(models.Model):
         verbose_name= "Moneda"
         verbose_name_plural= "Monedas"
 
+"""Clase Rango de precio,
+Atributos: [Precio minimo y maximo, ID moneda]"""
 class PriceRange(models.Model):
     min_price = models.FloatField(blank=False,null=False)
     max_price = models.FloatField(blank=False,null=False)
@@ -78,6 +91,7 @@ class PriceRange(models.Model):
         verbose_name= "Rango de Precio"
         verbose_name_plural= "Rangos de Precio"
 
+"""Clase Conversion de moneda"""
 class CurrencyConversion(models.Model):
     currency_one = models.ForeignKey(Currency,related_name="currency_one", on_delete= models.CASCADE)
     currency_two = models.ForeignKey(Currency,related_name="currency_two", on_delete= models.CASCADE)
