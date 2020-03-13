@@ -14,6 +14,7 @@ class CreateStore(CreateView): #Pass,Correo,Nombre,Apellido,Telefono,Direccion,F
     model = Store
     form_class=StoreForm
     template_name= 'store/my_stores.html' #Template al que envia el formulario
+    
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['categories'] = Category.objects.order_by('category_name')

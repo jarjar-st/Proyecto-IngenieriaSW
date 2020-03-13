@@ -89,6 +89,10 @@ class Account(AbstractBaseUser):
     is_superuser = models.BooleanField(
         default=True
     )
+    
+    profile_img= models.ImageField(
+        upload_to="profile_img", default="profile_img/default.png"
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name','last_name','phone_number','address','birth_date']
