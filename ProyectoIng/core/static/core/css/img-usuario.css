@@ -1,0 +1,8 @@
+.img-usuario {
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    border-radius: 10px;
+}

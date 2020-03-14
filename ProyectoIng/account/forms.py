@@ -1,6 +1,6 @@
 from django import forms
 from .models import Account
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 #Redefine el formulario de creacion de usuario
 class RegistrationForm(UserCreationForm):
@@ -10,5 +10,11 @@ class RegistrationForm(UserCreationForm):
         model= Account
         fields= ("email","first_name","last_name","birth_date",
                 "phone_number","address","password1",'password2',)
+
+class UpdateForm(UserCreationForm):
+    class Meta(forms.ModelForm):
+        model= Account
+        fields= ("first_name","last_name","birth_date",
+                "phone_number","address","profile_img",)
                 
         
