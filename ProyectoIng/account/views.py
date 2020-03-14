@@ -2,8 +2,9 @@ from django.shortcuts import redirect, render#Metodos de direccionamiento
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView #Objeto para la creacion de usuario, vista basada en Clase
 from django.views.generic.base import TemplateView #Visualizacion de Template , Vista basada en Clase
+from django.views.generic.edit import UpdateView
 from account.models import Account #Modelo de Usuario
-from account.forms import RegistrationForm #Formulario de registro de usuario
+from account.forms import RegistrationForm, UpdateForm #Formulario de registro de usuario
 from django.contrib.auth import logout  #Permite finalizar Sesion
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
@@ -41,6 +42,14 @@ class CreateUser(CreateView): #Pass,Correo,Nombre,Apellido,Telefono,Direccion,Fe
 
     def get_success_url(self):
         return reverse_lazy('login')+'?register'
+    
+class UpdateUser(UpdateView):
+    model = Account
+    form_class=UpdateForm
+    template_name= 'profile/profile_update.html' 
+
+    def get_success_url(self):
+        return reverse_lazy('profile-edit', kwargs={'pk': self.request.user.id})+'?updated'
 
 class TemplateLogin(TemplateView):#Visualizar Login
     template_name = 'account/login.html'

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import * #CreateUser,TemplateLogin,logout_view, activate
+from .views import CreateUser,TemplateLogin,logout_view, activate, UpdateUser
 from account import views
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
     #path('url_bajo_account',vista en views, name='nombre'),
     path('privacy', views.politicas, name='privacy'),
     path('terms', views.terminos, name='terms'),
+    path('profile/<int:pk>', UpdateUser.as_view(), name='profile-edit'),
 ]

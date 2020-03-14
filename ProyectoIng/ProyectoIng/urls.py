@@ -21,7 +21,6 @@ from core.views import main_page
 urlpatterns = [
     path('', main_page.as_view(), name="home"),
     path('stores/', include('store.urls')),
-    path('profileconf/<int:pk>', include('user_profile.urls')),
     path('admin/', admin.site.urls),
     #Auth Paths
     path('accounts/',include('account.urls')),

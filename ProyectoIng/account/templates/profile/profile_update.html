@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Editar Mi Perfil{% endblock %} 
 {% block css %}
-    <link href="{% static 'core/css/img-perfil.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/img-usuario.css' %}" rel="stylesheet">
 {% endblock %}
 {% block navbar %}
 {% endblock %}
@@ -62,7 +62,7 @@
                         </form>
                     </div>
                     <div id="form-change-password" hidden>
-                        <form action="{% url 'password-change' %}" id="id-change-password" method="post">
+                        <form action="" id="id-change-password" method="post">
                             <h3 class="mb-0 mt-3">Cambiar contraseña</h3>
                             {% csrf_token %}
                             <div class="form-group my-0 py-2 text-left">
