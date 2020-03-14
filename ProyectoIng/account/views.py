@@ -16,6 +16,8 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.html import strip_tags
+from ad.models import Category, PriceRange
+from location.models import Location
 
 # Create your views here.
 class CreateUser(CreateView): #Pass,Correo,Nombre,Apellido,Telefono,Direccion,FechaN
