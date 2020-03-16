@@ -1,0 +1,38 @@
+{% extends 'core/sidebar.html' %}
+{% block content %}
+        {% for ad in adinfo %}
+             {% if ad.id_user == request.user   %}
+                <br>{{ ad.ad_name }}
+                <br>{{ ad.ad_description }}
+                <br>{{ ad.id_category }}        <br>{{ ad.id_ad_kind }} 
+                <br>{{ ad.id_unit }}            <br>{{ ad.price }}
+                <br>{{ ad.date_created }}
+                <br>{{ ad.id_user.first_name }} {% if ad.id_store %} <br>{{ad.id_store}}{% endif %}
+                <br>{{ ad.id_location }}
+                <button class='btn-primary'>Boton que hace algo</button>
+                <hr>
+            {% endif %}
+        {% endfor %}
+
+        
+            
+       
+            
+            
+            
+        
+        
+
+    
+{% endblock %}
+
+id_user 
+id_store 
+id_location
+id_ad_kind
+id_category
+id_unit
+ad_name
+ad_description
+price
+date_created 

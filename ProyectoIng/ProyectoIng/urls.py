@@ -25,6 +25,7 @@ urlpatterns = [
     #Auth Paths
     path('accounts/',include('account.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('ads/',include('ad.urls')),
 ]
 #Manejo de Imagenes en modo DEBUG
 if settings.DEBUG:
