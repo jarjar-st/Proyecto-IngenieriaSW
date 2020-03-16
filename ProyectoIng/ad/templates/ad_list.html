@@ -1,38 +1,43 @@
 {% extends 'core/sidebar.html' %}
 {% block content %}
-        {% for ad in adinfo %}
-             {% if ad.id_user == request.user   %}
-                <br>{{ ad.ad_name }}
-                <br>{{ ad.ad_description }}
-                <br>{{ ad.id_category }}        <br>{{ ad.id_ad_kind }} 
-                <br>{{ ad.id_unit }}            <br>{{ ad.price }}
-                <br>{{ ad.date_created }}
-                <br>{{ ad.id_user.first_name }} {% if ad.id_store %} <br>{{ad.id_store}}{% endif %}
-                <br>{{ ad.id_location }}
-                <button class='btn btn-primary'>Boton que hace algo</button>
-                <hr>
-            {% endif %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2"> 
+            <a href="#" class="btn btn-primary m-1">Nuevo Anuncio</a>
+        </div>
+        {% for data in ads_data %}
+                {% if data.id_user == request.user %}
+                <div class="card col-md-3" style="width: 16rem;">
+                    {% for img in data.ad_images.all %} 
+                    <img class="card-img-top" src="{{img.img_route.url}}" alt="Card image cap">
+                    {% endfor %}
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.ad_name}} </h5>
+                      <h6>{% if data.id_store != None %} {{data.id_store}} {% endif %}</h6>
+                      <p class="card-text">{{data.ad_description}} <strong>Precio por {{data.id_unit}}:&nbsp; {{data.price}}</strong> 
+                        <a href="">{{ data.id_category }}</a>
+                        {{ data.id_location }}
+                      </p>
+                      <span>{{data.date_created}}</span>
+                      <a href="#" class="btn btn-success">Editar</a>
+                      <a href="#" class="btn btn-danger">Eliminar</a>
+                      
+                    </div>
+                  </div>
+                 {% endif %}
         {% endfor %}
-
-        
-            
-       
-            
-            
-            
-        
-        
-
-    
+    </div>
+</div>
 {% endblock %}
-
-id_user 
-id_store 
-id_location
-id_ad_kind
-id_category
-id_unit
-ad_name
-ad_description
-price
-date_created 
+id_user = models.ForeignKey(Account, on_delete=models.CASCADE)
+id_store = models.ForeignKey(Store, on_delete= models.CASCADE,default=None, blank=True, null=True)
+id_location= models.ForeignKey(Location, on_delete= models.CASCADE)
+id_ad_kind= models.ForeignKey(AdKind, on_delete= models.CASCADE)
+id_category= models.ForeignKey(Category, on_delete= models.CASCADE)
+id_unit= models.ForeignKey(Unit, on_delete= models.CASCADE, default = None, blank=True, null=True)
+ad_name= models.CharField(max_length=100)
+ad_description= models.TextField()
+price= models.FloatField()
+date_created = models.DateTimeField(auto_now_add=True)
+ad_images= models.ManyToManyField(Image, related_name="get_images")

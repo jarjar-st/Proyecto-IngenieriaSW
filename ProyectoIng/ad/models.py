@@ -2,6 +2,7 @@ from django.db import models
 from account.models import Account
 from store.models import Store
 from location.models import Location
+from images.models import Image
 
 # Create your models here.
 """Clase Categoria
@@ -56,6 +57,7 @@ class Ad(models.Model):
     ad_description= models.TextField()
     price= models.FloatField()
     date_created = models.DateTimeField(auto_now_add=True)
+    ad_images= models.ManyToManyField(Image, related_name="get_images_ad")
 
     def __str__(self):
         return self.ad_name
