@@ -395,7 +395,7 @@
                         </div>
                       </div>
                       <div class="row">
-                        <a href="#" class="btn btn-link">Buscar en {{category.category_name}}</a>
+                        <a href="{% url 'category_products' category.id %}" class="btn btn-link">Buscar en {{category.category_name}}</a>
                       </div>
                     </div>
                   </div>

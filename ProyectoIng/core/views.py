@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from ad.models import Category, PriceRange
 from location.models import Location
+from django.views.generic.detail import DetailView
+from ad.models import Category,Ad
 # Create your views here.
 
 class main_page(TemplateView):
@@ -13,3 +15,14 @@ class main_page(TemplateView):
         context['locations'] = Location.objects.filter(correlative_direction__isnull=True)
         return context
 
+
+
+class CategoryDetailView(DetailView):
+
+    model = Category
+    template_name = 'core/category_products.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products']= Ad.objects.all()
+        return context

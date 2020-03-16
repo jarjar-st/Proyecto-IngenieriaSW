@@ -1,0 +1,12 @@
+{% extends 'core/sidebar.html' %}
+{% block content %}
+
+    {% for product in products %}
+        {% if product.id_category == object %} 
+            {{ product.ad_name }}
+            {{ product.ad_description }}
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

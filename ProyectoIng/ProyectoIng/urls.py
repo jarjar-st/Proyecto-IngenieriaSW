@@ -19,7 +19,7 @@ from django.urls import path,include
 from core.views import main_page
 
 urlpatterns = [
-    path('', main_page.as_view(), name="home"),
+    path('', include('core.urls')),
     path('stores/', include('store.urls')),
     path('admin/', admin.site.urls),
     #Auth Paths
