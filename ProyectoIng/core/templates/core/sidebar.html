@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{% block title %}{% endblock %} | Pa’Ya</title>
+  <title>{% block title %}Inicio{% endblock %} | Pa’Ya</title>
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'core/vendor/fontawesome/css/all.min.css' %}" rel="stylesheet">
@@ -35,7 +35,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fab fa-product-hunt"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Pa'Ya <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">Pa'Ya</div>
       </a>
 
       <!-- Divider -->
@@ -381,16 +381,23 @@
         <div class="container-fluid">
           {% block content %}
             <div class="row">
-              {% for category in categories %}
-                <div class="col-md-4">
-                  <div class="jumbotron">
-                    <h1 class="display-5 text-primary"><i class="{{category.category_icon_class}}"></i></h1>
-                    <p class="lead">{{category.category_name}}</p>
-                    <hr class="my-1">
-                    <p>{{category.category_description}}</p>
-                    <p class="lead">
-                      <a class="btn btn-primary btn-lg" href="#" role="button">Buscar en {{category.category_name}}</a>
-                    </p>
+              {% for category in categories %}              
+                <div class="col-md-3 mb-4">
+                  <div class="card border-left-{% cycle 'primary' 'info' 'success' 'secondary' 'danger' 'warning' %} shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{category.category_name}}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{category.category_description}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="{{category.category_icon_class}} fa-2x"></i>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <a href="#" class="btn btn-link">Buscar en {{category.category_name}}</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               {% endfor %}
