@@ -13,7 +13,7 @@
         {% for data in ads_data %}
           <div class="col-md-3"> 
           {% if data.id_user == request.user %}
-            <div class="card">
+            <div class="card border-left-{% cycle 'primary' 'info' 'success' 'secondary' 'danger' 'warning' %} shadow h-100 pb-2">
               {% if data.ad_images.count == 1 %}
                 {% for img in data.ad_images.all %}
                 <img class="card-img-top img-fluid" src="{{img.img_route.url}}" alt="Card image cap">
