@@ -1,4 +1,8 @@
 {% extends 'core/sidebar.html' %}
+{% load static %}
+{% block css %}
+    <link href="{% static 'core/css/card-img-top.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
 <div class="container-fluid">
     <div class="row">
@@ -8,10 +12,30 @@
         </div>
         {% for data in ads_data %}
                 {% if data.id_user == request.user %}
-                <div class="card col-md-3" style="width: 16rem;">
-                    {% for img in data.ad_images.all %} 
-                    <img class="card-img-top" src="{{img.img_route.url}}" alt="Card image cap">
-                    {% endfor %}
+                <div class="card col-md-3">
+                    {% if data.ad_images.count == 1 %}
+                      {% for img in data.ad_images.all %}
+                      <img class="card-img-top img-fluid" src="{{img.img_route.url}}" alt="Card image cap">
+                      {% endfor %}
+                    {% else %}
+                    <div id="carouselAd{{ data.pk }}" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        {% for img in data.ad_images.all %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img class=" card-img-top d-block w-100" src="{{img.img_route.url}}">
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselAd{{ data.pk }}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselAd{{ data.pk }}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                    {% endif %}
                     <div class="card-body">
                       <h5 class="card-title">{{data.ad_name}} </h5>
                       <h6>{% if data.id_store != None %} {{data.id_store}} {% endif %}</h6>
@@ -30,6 +54,7 @@
     </div>
 </div>
 {% endblock %}
+
 id_user = models.ForeignKey(Account, on_delete=models.CASCADE)
 id_store = models.ForeignKey(Store, on_delete= models.CASCADE,default=None, blank=True, null=True)
 id_location= models.ForeignKey(Location, on_delete= models.CASCADE)
