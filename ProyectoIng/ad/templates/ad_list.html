@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-10"></div>
         <div class="col-md-2"> 
-            <a href="#" class="btn btn-primary m-1">Nuevo Anuncio</a>
+            <a href="{% url 'create' %}" class="btn btn-primary m-1">Nuevo Anuncio</a>
         </div>
         {% for data in ads_data %}
           <div class="col-md-3"> 

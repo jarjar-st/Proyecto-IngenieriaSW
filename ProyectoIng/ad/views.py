@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView
 from .models import Ad
 from account.models import Account
 from images.models import Image
@@ -16,4 +17,8 @@ class ShowAdsListView(ListView):
         return context
 #id_user ,id_store ,id_location,id_ad_kind,id_category,id_unit,ad_name,ad_description,price,date_created
 
-    
+class AdCreate(CreateView):
+    model = Ad
+    fields = ['ad_name', 'ad_description', 'price', 'ad_images']
+
+   
